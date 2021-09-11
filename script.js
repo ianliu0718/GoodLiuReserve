@@ -34,6 +34,13 @@ liff.sendMessages([
 ]);
 	
 }
+else{
+liff.sendMessages([
+  {
+    type: 'text',
+    text: '愛老婆噢!'
+  }
+}
   h.innerHTML = 'isLoggedIn：' + liff.isLoggedIn();
 
   }

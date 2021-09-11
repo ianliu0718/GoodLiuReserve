@@ -15,7 +15,7 @@ function initializeLiff(myLiffId) {
   var h = document.getElementById('result');
   h.innerHTML = window.location.href;
   //h.innerHTML = 'isLoggedIn：' + liff.isLoggedIn();
-  liff.login({ redirectUri: 'https://ianliu0718.github.io/GoodLiuReserve' });
+  //liff.login({ redirectUri: 'https://ianliu0718.github.io/GoodLiuReserve' });
   //liff.login();
   //h.innerHTML = 'isLoggedIn：' + liff.isLoggedIn();
   // 登入
@@ -24,14 +24,17 @@ function initializeLiff(myLiffId) {
   //  redirectUri: 'https://www.xxxxxxx.com.tw'
   //});
 
-
-  h.innerHTML = 'isLoggedIn：' + liff.isLoggedIn();
+if(!liff.isLoggedIn()){
+liff.login();
 liff.sendMessages([
   {
     type: 'text',
     text: 'Hello, World!'
   }
-])
+]);
+	
+}
+  h.innerHTML = 'isLoggedIn：' + liff.isLoggedIn();
 
   }
   //document.getElementById('result').innerHTML = 'isLoggedIn：' + liff.isLoggedIn();

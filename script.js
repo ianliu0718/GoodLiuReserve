@@ -11,8 +11,9 @@ function initializeLiff(myLiffId) {
         });
   }
 
-  function initializeApp() {
+function initializeApp() {
   var h = document.getElementById('result');
+  var _message = document.getElementById('Msg');
   h.innerHTML = window.location.href;
   //h.innerHTML = 'isLoggedIn：' + liff.isLoggedIn();
   //liff.login({ redirectUri: 'https://ianliu0718.github.io/GoodLiuReserve' });
@@ -24,26 +25,26 @@ function initializeLiff(myLiffId) {
   //  redirectUri: 'https://www.xxxxxxx.com.tw'
   //});
 
-if(!liff.isLoggedIn()){
-liff.login();
-liff.sendMessages([
-  {
-    type: 'text',
-    text: 'Hello, World!'
-  }
-]);
-	
-}
-else{
-liff.sendMessages([
-  {
-    type: 'text',
-    text: '愛老婆噢!'
-  }
-}
+	if(!liff.isLoggedIn()){
+		liff.login();
+		liff.sendMessages([
+		{
+			type: 'text',
+			text: 'Hello, World!'
+		}
+		]);
+		
+	}
+	else{
+		liff.sendMessages([
+		{
+		type: 'text',
+		text: _message
+		}
+		]);
+	}
   h.innerHTML = 'isLoggedIn：' + liff.isLoggedIn();
-
-  }
+}
   //document.getElementById('result').innerHTML = 'isLoggedIn：' + liff.isLoggedIn();
   //使用 LIFF_ID 初始化 LIFF 應用
   //initializeLiff('1656397971-q9WB8y1b');

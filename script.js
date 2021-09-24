@@ -13,7 +13,7 @@ function initializeLiff(myLiffId) {
 
 function initializeApp() {
   var h = document.getElementById('result');
-  var _message = document.getElementById('Msg');
+  var _message = document.getElementById('Msg').value;
   h.innerHTML = window.location.href;
   //h.innerHTML = 'isLoggedIn：' + liff.isLoggedIn();
   //liff.login({ redirectUri: 'https://ianliu0718.github.io/GoodLiuReserve' });

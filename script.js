@@ -26,9 +26,6 @@ function PostToGAS(){
 	});
 }
 
-//劉阿鳴鳴 @kbj9999d
-//https://line.me/R/oaMessage/@kbj9999d/?{text_message}
-//onclick="location.href='要前往的網頁連結'"
 //換行為：%0A
 //GAS回傳後的更新
 function SendLINEReservation(sendMsg){
@@ -47,17 +44,16 @@ function SendLINELIFF(sendMsg){
 		liff.login();
 		liff.sendMessages([{
 			type: 'text',
-			text: "這裡測試666666%0A這裡測試二%0A三"
+			text: sendMsg
 		}]);
 	}
 	else{
 		liff.sendMessages([{
 			type: 'text',
-			text: "這裡測試
-			這裡測試二
-			三"
+			text: '%0A'+"sendMsg"
 		}]);
 	}
+	//liff.closeWindow();
 }
 
 function Return(ReturnModel) {

@@ -1,8 +1,8 @@
 function PostToGAS(){
 	////97版測試用
 	//var data_url = "https://script.google.com/macros/s/AKfycbz2uNomPmtyYIFtlmFShRajrNeJKbQsi16gv9137U1mMvAfpRwoaAqSxYTCm5tF1Q3c/exec";
-	//105版
-	var data_url = "https://script.google.com/macros/s/AKfycbxIstClmX-LnvQoD0nTcM_3iOOqbDGtCdq9IcDwRLeT2IQxUzOZAZtFZZz-z7OBVdvq/exec";
+	//106版
+	var data_url = "https://script.google.com/macros/s/AKfycbxQt609U97GuShxtXDr1h-YOQ85U3iMtcBGf-1zV8mGb6D5oCre78bQx3WkYFy7Ro2K/exec";
 	
 	var ianPostData = {
        "ReserveName": document.getElementById('ReserveName').value,

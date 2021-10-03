@@ -1,0 +1,48 @@
+
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+	html {
+		height: 100%;
+	}
+	body {
+		min-height: 100%;
+	}
+	.form-control {
+		text-align:center;
+	}
+	.formbody {
+		text-align:center;
+		background-color:#4C8CB4;
+		font-family: 'Noto Sans TC', sans-serif;
+		color: #FFFFFF;
+	}
+	.ReturnTitle {
+		font-family: 'Noto Sans TC', sans-serif;
+		background-color:#4C8CB4;
+		color: #FFFFFF;
+	}
+	.ReturnOutputMsg {
+		font-family: 'Noto Sans TC', sans-serif;
+		color: #437796;
+	}
+	.ReserveItems {
+		color: #000000;
+		border: 1px solid #333;
+		box-shadow: 8px 8px 5px #444;
+		padding: 8px 22px;
+		background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+	}
+	.button {
+		border-radius: 100px;
+		background-color: transparent;
+		border-color: #437796;
+		box-shadow: 5px 4px 10px 3px rgb(0 0 0 / 35%);
+	}
+	.button:hover {
+		background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+		background-color:#408c99;
+	}
+	.button:focus {
+		position:relative;
+		top:1px;
+		box-shadow: 5px 4px 10px 3px rgb(0 0 0 / 35%);
+	}

@@ -1,19 +1,113 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iBot</title>
-	<script type="text/javascript" src="script.js"></script>
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html>
+  <head>
+    <base target="_top">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-    <div>
-        <div id="result"></div>
-        <div>
-			<a>輸入發送文字：<input type="text" name="" value="" id="Msg"></a>
+	<script src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <div class="formbody">
+		<form name="ReserveIndex" id="ReserveIndex" >
+		<div class="form-group">
+			<label class="control-label" >姓名：</label>
+			<input class="form-control" id="ReserveName" type="text" placeholder="" >
 		</div>
+		<div class="form-group">
+			<label class="control-label" >性別：</label> <br>
+			<label><input type="radio" name="ReserveGender" value="男">男</label>&emsp;
+			<label><input type="radio" name="ReserveGender" value="女">女</label>&emsp;
+			<label><input type="radio" name="ReserveGender" value="其他">其他</label>&emsp;
+		</div>
+		<div class="form-group">
+			<label class="control-label" >電話：</label>
+			<input class="form-control" id="ReservePhone" type="tel" >
+		</div>
+		<div id="ReserveItemList">
+			<div class="list-group-item form-group ReserveItems" Name="ReserveItems" id="ReserveItems_0">
+				<div class="row">
+					<label class="col-sm-12 col-md-12 col-xl-12 control-label">預約項目：</label> <select class="col-sm-12 col-md-12 col-xl-12 form-control" Name="ReserveItem" onChange="RenewItem(this.offsetParent.id, this.selectedIndex);">
+					<option value="無"></option>
+					<option value="按摩_指壓">按摩_指壓</option>
+					<option value="按摩_油壓">按摩_油壓</option>
+					<option value="按摩_雙壓">按摩_雙壓</option>
+					<option value="按摩_局部">按摩_局部</option>
+					<option value="熱蠟除毛_男仕">熱蠟除毛_男仕</option>
+					<option value="熱蠟除毛_女仕">熱蠟除毛_女仕</option>
+					</select>
+				</div>
+				<div class="row" name="ReserveItemDetalText" hidden="true">
+					<label class="col-sm-1 col-md-1 col-xl-1 control-label"></label> 
+					<select class="col-sm-11 col-md-11 col-xl-11 form-control" Name="ReserveItemDetal">
+						<option value="套餐組合">套餐組合</option>
+					</select>
+				</div>
+				<div class="row" name="ReserveExtraItemText" hidden="true">
+					<label class="col-sm-1 col-md-1 col-xl-1 control-label"></label> 
+					<select class="col-sm-11 col-md-11 col-xl-11 form-control" Name="ReserveExtraItem">
+						<option value="單項部位">單項部位</option>
+					</select>
+				</div>
+			</div>
+			<br>
+		</div>
+		<div style="text-align:center">
+			<button type="button" class="button btn btn-primary btn-lg " onclick="addReserveItems()">
+				<span class="glyphicon glyphicon-plus"></span>&emsp;新增預約項目&emsp;
+			</button>
+		</div>
+    <div style="text-align:center" class="text-warning" id="AddOverflowMsg" hidden="true"></div>
+		<br>
+		<div class="form-group">
+			<label class="control-label" for="ReserveDate">預約日期：</label>
+			<input type="date" class="form-control" id="ReserveDate" autocomplete="off" tabindex="0"  aria-labelledby="i9" max="2071-01-01" data-initial-value="">
+		</div>
+		<div class="form-group">
+			<label class="control-label">預約時間：</label>
+			<input type="time" class="form-control" id="ReserveTime" type="text" >
+		</div>
+		<div class="form-group">
+			<label class="control-label">預約據點：</label>
+			<select class="form-control" id="ReservePlace">
+			<option value="新北板橋">新北板橋</option>
+			<option value="台北西門">台北西門</option>
+			<option value="大高雄區">大高雄區</option>
+			<option value="外出到府">外出到府</option>
+			</select>
+		</div>
+		<div style="text-align:center">
+			<button type="button" class="button btn btn-primary btn-lg "
+				onclick="PostToGAS()">
+				<span class="glyphicon glyphicon-plus"></span>&emsp;&emsp;送出預約確認&emsp;&emsp;
+			</button>
+      <div class="p-3 mb-2 bg-danger text-white" id="ReturnFalseMsg" hidden="true"></div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-12 col-md-12 col-xl-12 control-label"></label>
+		</div>
+		</form>
+	  </div>
+    <div id="Output" hidden="true">
+      <div class="ReturnTitle" id="Title"></div>
+      <div class="ReturnOutputMsg" id="OutputMsg"></div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2" id="TotalAmount"></th>
+          </tr>
+        </thead>
+      </table>
+		  <div style="text-align:center">
+		  	<button style="background-color:#4C8CB4;" type="button" class="button btn btn-primary btn-lg " onclick="SendLINEReservation();">
+		  		<span class="glyphicon glyphicon-plus"></span>&emsp;確認預約&emsp;
+		  	</button>
+		  </div>
+      <label id="SendLINEReservationMsg" hidden="true"></label>
     </div>
-    <input type="button" value="連結名稱" onclick="initializeLiff('1656397971-q9WB8y1b')"></input>
-
-</body>
+  </body>
+</html>

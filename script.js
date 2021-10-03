@@ -65,9 +65,9 @@ function Return(ReturnModel) {
     document.getElementById('Output').hidden = false;
     document.getElementById('Title').innerHTML = ReturnModel.Title;
     document.getElementById('OutputMsg').innerHTML = ReturnModel.OutputMsg;
-    document.getElementById('SendLINEReservationMsg').innerHTML = ReturnModel.SendLINEReservationMsg;
+    document.getElementById('SendLINEReservationMsg').innerHTML = ReturnModel.OutputMsg;
+    //document.getElementById('SendLINEReservationMsg').innerHTML = ReturnModel.SendLINEReservationMsg;
     document.getElementById('TotalAmount').innerHTML = ReturnModel.TotalAmount;
-	SendLINEReservation(ReturnModel.SendLINEReservationMsg);
   }
   else{
     document.getElementById('ReturnFalseMsg').hidden = false;

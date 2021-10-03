@@ -50,7 +50,7 @@ function SendLINELIFF(sendMsg){
 	else{
 		liff.sendMessages([{
 			type: 'text',
-			text: '%0A'+"sendMsg"
+			text: "\r\nsendMsg"
 		}]);
 	}
 	//liff.closeWindow();

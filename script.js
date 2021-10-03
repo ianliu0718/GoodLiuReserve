@@ -1,8 +1,8 @@
 function PostToGAS(){
 	////97版測試用
 	//var data_url = "https://script.google.com/macros/s/AKfycbz2uNomPmtyYIFtlmFShRajrNeJKbQsi16gv9137U1mMvAfpRwoaAqSxYTCm5tF1Q3c/exec";
-	//103版測試用
-	var data_url = "https://script.google.com/macros/s/AKfycbz565aTNI3EB-CQoTSwv-o6-c9whxa-8OSoxYYdNchRiRyzQP9TYkRPpb2Cqi1wqHUw/exec";
+	//104版
+	var data_url = "https://script.google.com/macros/s/AKfycbxon_uYYYKn8V3RbPQXQhiDRKJtam_1LAGbbuP0O6xtlFWWZmcnmkKzgh3xRhnAhB4/exec";
 	
 	var ianPostData = {
        "ReserveName": document.getElementById('ReserveName').value,
@@ -65,9 +65,9 @@ function Return(ReturnModel) {
     document.getElementById('Output').hidden = false;
     document.getElementById('Title').innerHTML = ReturnModel.Title;
     document.getElementById('OutputMsg').innerHTML = ReturnModel.OutputMsg;
-    //document.getElementById('SendLINEReservationMsg').innerHTML = ReturnModel.SendLINEReservationMsg;
+    document.getElementById('SendLINEReservationMsg').innerHTML = ReturnModel.SendLINEReservationMsg;
     document.getElementById('TotalAmount').innerHTML = ReturnModel.TotalAmount;
-	SendLINEReservation(sendMsg);
+	SendLINEReservation(ReturnModel.SendLINEReservationMsg);
   }
   else{
     document.getElementById('ReturnFalseMsg').hidden = false;

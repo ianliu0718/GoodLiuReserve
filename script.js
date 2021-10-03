@@ -53,7 +53,7 @@ function SendLINELIFF(sendMsg){
 	else{
 		liff.sendMessages([{
 			type: 'text',
-			text: sendMsg
+			text: "這裡測試%0A這裡測試二%0A三"
 		}]);
 	}
 }

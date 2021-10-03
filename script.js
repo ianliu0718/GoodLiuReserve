@@ -53,7 +53,7 @@ function SendLINELIFF(sendMsg){
 			text: sendMsg
 		}]);
 	}
-	liff.closeWindow();
+	//liff.closeWindow();
 }
 
 function Return(ReturnModel) {

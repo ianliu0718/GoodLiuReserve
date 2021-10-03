@@ -1,8 +1,8 @@
 function PostToGAS(){
 	////97版測試用
 	//var data_url = "https://script.google.com/macros/s/AKfycbz2uNomPmtyYIFtlmFShRajrNeJKbQsi16gv9137U1mMvAfpRwoaAqSxYTCm5tF1Q3c/exec";
-	//107版
-	var data_url = "https://script.google.com/macros/s/AKfycbySZqNs3ahyRV-Z--1IBlH4PldhytVrnP3tgPjEmJubHCrSwJSNnCo8ud8gB-_zVZ2I/exec";
+	//108版 Line送出訊息移除最後一行空白
+	var data_url = "https://script.google.com/macros/s/AKfycbxc0e_ahj2wUxl7lQMmPW_kS4mL3CWhwdyaMewbao6pC0Ci7RMvM-oO6C19031jPCNF/exec";
 	
 	var ianPostData = {
        "ReserveName": document.getElementById('ReserveName').value,
@@ -53,7 +53,7 @@ function SendLINELIFF(sendMsg){
 			text: sendMsg
 		}]);
 	}
-	//liff.closeWindow();
+	liff.closeWindow();
 }
 
 function Return(ReturnModel) {

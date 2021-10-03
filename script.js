@@ -1,8 +1,8 @@
 function PostToGAS(){
 	////97版測試用
 	//var data_url = "https://script.google.com/macros/s/AKfycbz2uNomPmtyYIFtlmFShRajrNeJKbQsi16gv9137U1mMvAfpRwoaAqSxYTCm5tF1Q3c/exec";
-	//106版
-	var data_url = "https://script.google.com/macros/s/AKfycbxQt609U97GuShxtXDr1h-YOQ85U3iMtcBGf-1zV8mGb6D5oCre78bQx3WkYFy7Ro2K/exec";
+	//107版
+	var data_url = "https://script.google.com/macros/s/AKfycbySZqNs3ahyRV-Z--1IBlH4PldhytVrnP3tgPjEmJubHCrSwJSNnCo8ud8gB-_zVZ2I/exec";
 	
 	var ianPostData = {
        "ReserveName": document.getElementById('ReserveName').value,
@@ -50,7 +50,7 @@ function SendLINELIFF(sendMsg){
 	else{
 		liff.sendMessages([{
 			type: 'text',
-			text: "\r\nsendMsg"
+			text: sendMsg
 		}]);
 	}
 	//liff.closeWindow();

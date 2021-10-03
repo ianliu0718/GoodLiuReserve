@@ -47,7 +47,7 @@ function SendLINELIFF(sendMsg){
 		liff.login();
 		liff.sendMessages([{
 			type: 'text',
-			text: sendMsg
+			text: "這裡測試666666%0A這裡測試二%0A三"
 		}]);
 	}
 	else{

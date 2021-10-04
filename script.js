@@ -1,4 +1,4 @@
-function PostToGAS(){
+function PostToGAS(profile){
 	////97版測試用
 	//var data_url = "https://script.google.com/macros/s/AKfycbz2uNomPmtyYIFtlmFShRajrNeJKbQsi16gv9137U1mMvAfpRwoaAqSxYTCm5tF1Q3c/exec";
 	////109版 Line送出訊息移除最後一行空白
@@ -14,7 +14,7 @@ function PostToGAS(){
 		"ReserveDate": document.getElementById('ReserveDate').value,
 		"ReserveTime": document.getElementById('ReserveTime').value,
 		"ReservePlace": document.getElementById('ReservePlace').value,
-		"ReserveProfile": JSON.stringify(GetProfileToGoogleSheets())
+		"ReserveProfile": JSON.stringify(profile)
 	};
 	$.ajax({
 	type: "POST",
@@ -38,12 +38,12 @@ function GetProfileToGoogleSheets(){
 		}
 		liff.getProfile()
 		.then(profile => {
-			const name = profile.displayName;
-			const userId = profile.userId;
-			const pictureUrl = profile.pictureUrl;
-			const statusMessage = profile.statusMessage;
+			//const name = profile.displayName;
+			//const userId = profile.userId;
+			//const pictureUrl = profile.pictureUrl;
+			//const statusMessage = profile.statusMessage;
 			console.log(profile);
-			return profile;
+			PostToGAS(profile);
 		})
 		.catch((err) => {
 			console.log('error', err);

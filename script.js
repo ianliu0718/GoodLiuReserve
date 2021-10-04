@@ -43,11 +43,11 @@ function GetProfileToGoogleSheets(){
 			const pictureUrl = profile.pictureUrl;
 			const statusMessage = profile.statusMessage;
 			console.log(name);
+			return profile;
 		})
 		.catch((err) => {
 			console.log('error', err);
 		});
-		return profile;
 	})
 }
 

@@ -4,7 +4,7 @@ function PostToGAS(){
 	////109版 Line送出訊息移除最後一行空白
 	//var data_url = "https://script.google.com/macros/s/AKfycbwt1jizyvUveFFvZjRPIudKTJldlniUu4hnA_bEbfKqgSzOnCw_LhNdIXXTYl8YeVcf/exec";
 	//114版 送出使用者訊息
-	var data_url = "https://script.google.com/macros/s/AKfycbxVmaXCaTI93vHRyL3xVanqp3ZMjEE1fYGtLLEAGGfMfb6ou3NWA2AfwEEm87zshw6L/exec";
+	var data_url = "https://webhook.site/89d5c246-0e61-4689-8796-68e7e6776b51";
 	
 	var ianPostData = {
 		"ReserveName": document.getElementById('ReserveName').value,
@@ -42,7 +42,7 @@ function GetProfileToGoogleSheets(){
 			const userId = profile.userId;
 			const pictureUrl = profile.pictureUrl;
 			const statusMessage = profile.statusMessage;
-			console.log(name);
+			console.log(profile);
 			return profile;
 		})
 		.catch((err) => {

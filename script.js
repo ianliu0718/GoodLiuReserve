@@ -4,7 +4,7 @@ function PostToGAS(profile){
 	////109版 Line送出訊息移除最後一行空白
 	//var data_url = "https://script.google.com/macros/s/AKfycbwt1jizyvUveFFvZjRPIudKTJldlniUu4hnA_bEbfKqgSzOnCw_LhNdIXXTYl8YeVcf/exec";
 	//120版 送出使用者訊息
-	var data_url = "hhttps://script.google.com/macros/s/AKfycbw-ohT-pxesdvQmGrw5UEv2Sv6yy3vXbyi8iFXA4S47F-aWScHIt9NZrdC9Rsmh3wFy/exec";
+	var data_url = "https://script.google.com/macros/s/AKfycbw-ohT-pxesdvQmGrw5UEv2Sv6yy3vXbyi8iFXA4S47F-aWScHIt9NZrdC9Rsmh3wFy/exec";
 	
 	var ianPostData = {
 		"ReserveName": document.getElementById('ReserveName').value,
@@ -23,7 +23,7 @@ function PostToGAS(profile){
 	success: function(response) {
 		//alert("成功");
 		console.log(response);
-		//Return(response.returnMsg);
+		Return(response.returnMsg);
 	},
 	error: function(){alert("失敗！")}
 	});

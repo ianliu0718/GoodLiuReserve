@@ -1,8 +1,8 @@
 function PostToGAS(){
 	////97版測試用
 	//var data_url = "https://script.google.com/macros/s/AKfycbz2uNomPmtyYIFtlmFShRajrNeJKbQsi16gv9137U1mMvAfpRwoaAqSxYTCm5tF1Q3c/exec";
-	//108版 Line送出訊息移除最後一行空白
-	var data_url = "https://script.google.com/macros/s/AKfycbxc0e_ahj2wUxl7lQMmPW_kS4mL3CWhwdyaMewbao6pC0Ci7RMvM-oO6C19031jPCNF/exec";
+	//109版 Line送出訊息移除最後一行空白
+	var data_url = "https://script.google.com/macros/s/AKfycbwt1jizyvUveFFvZjRPIudKTJldlniUu4hnA_bEbfKqgSzOnCw_LhNdIXXTYl8YeVcf/exec";
 	
 	var ianPostData = {
        "ReserveName": document.getElementById('ReserveName').value,

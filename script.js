@@ -3,8 +3,8 @@ function PostToGAS(){
 	//var data_url = "https://script.google.com/macros/s/AKfycbz2uNomPmtyYIFtlmFShRajrNeJKbQsi16gv9137U1mMvAfpRwoaAqSxYTCm5tF1Q3c/exec";
 	////109版 Line送出訊息移除最後一行空白
 	//var data_url = "https://script.google.com/macros/s/AKfycbwt1jizyvUveFFvZjRPIudKTJldlniUu4hnA_bEbfKqgSzOnCw_LhNdIXXTYl8YeVcf/exec";
-	//112版 送出使用者訊息
-	var data_url = "https://script.google.com/macros/s/AKfycbyM8B9HNEIumtFrGRZUG4swvgbAnD2Bh7LH9-pL3qgPT_bnymzyDjJngphbMzK4nYQ0/exec";
+	//113版 送出使用者訊息
+	var data_url = "https://script.google.com/macros/s/AKfycbya4JTqZQ26rfAOe4UIBzMCjvyXgto6e3Y99wizJAlPOGlTGh54RpoW7pDLZnn5F4MY/exec";
 	
 	var ianPostData = {
 		"ReserveName": document.getElementById('ReserveName').value,

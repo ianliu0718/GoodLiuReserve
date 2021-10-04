@@ -43,6 +43,7 @@ function GetProfileToGoogleSheets(){
 			//const pictureUrl = profile.pictureUrl;
 			//const statusMessage = profile.statusMessage;
 			console.log(profile);
+			console.log(JSON.stringify(profile));
 			PostToGAS(profile);
 		})
 		.catch((err) => {

@@ -3,8 +3,8 @@ function PostToGAS(){
 	//var data_url = "https://script.google.com/macros/s/AKfycbz2uNomPmtyYIFtlmFShRajrNeJKbQsi16gv9137U1mMvAfpRwoaAqSxYTCm5tF1Q3c/exec";
 	////109版 Line送出訊息移除最後一行空白
 	//var data_url = "https://script.google.com/macros/s/AKfycbwt1jizyvUveFFvZjRPIudKTJldlniUu4hnA_bEbfKqgSzOnCw_LhNdIXXTYl8YeVcf/exec";
-	//111版 送出使用者訊息
-	var data_url = "https://script.google.com/macros/s/AKfycbwjnEVQLGyrb9oqm0hwNN0PsV9taClv9x781V8JDG2RmOjXTLUftseFsJwG6eeHym-8/exec";
+	//112版 送出使用者訊息
+	var data_url = "https://script.google.com/macros/s/AKfycbyM8B9HNEIumtFrGRZUG4swvgbAnD2Bh7LH9-pL3qgPT_bnymzyDjJngphbMzK4nYQ0/exec";
 	
 	var ianPostData = {
 		"ReserveName": document.getElementById('ReserveName').value,
@@ -29,7 +29,6 @@ function PostToGAS(){
 	});
 }
 function GetProfileToGoogleSheets(){
-	
 	liff.init({
 		liffId: '1656397971-q9WB8y1b'
 	})
@@ -50,9 +49,6 @@ function GetProfileToGoogleSheets(){
 		});
 		return profile;
 	})
-	.catch((err) => {
-		alert('啟動失敗。');
-	});
 }
 
 //GAS回傳後的更新

@@ -41,7 +41,6 @@ function GetProfileToGoogleSheets(){
 		.then(profile => {
 			const name = profile.displayName;
 			const userId = profile.userId;
-			const name = profile.displayName;
 			const pictureUrl = profile.pictureUrl;
 			const statusMessage = profile.statusMessage;
 			console.log(name);

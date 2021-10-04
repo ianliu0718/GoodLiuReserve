@@ -42,18 +42,30 @@ function SendLINEReservation(sendMsg){
 function SendLINELIFF(sendMsg){
 	if(!liff.isLoggedIn()){
 		liff.login();
+		
 		liff.sendMessages([{
 			type: 'text',
 			text: sendMsg
-		}]);
+		}])
+		.then(() => {
+			liff.closeWindow();
+		})
+		.catch((err) => {
+			liff.closeWindow();
+		});
 	}
 	else{
 		liff.sendMessages([{
 			type: 'text',
 			text: sendMsg
-		}]);
+		}])
+		.then(() => {
+			liff.closeWindow();
+		})
+		.catch((err) => {
+			liff.closeWindow();
+		});
 	}
-	liff.closeWindow();
 }
 
 function Return(ReturnModel) {

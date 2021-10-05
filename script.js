@@ -81,8 +81,11 @@ function SendLINELIFF(sendMsg){
 
 function Return(ReturnModel) {
   if (ReturnModel.State == true){
-    document.getElementById('ReturnFalseMsg').hidden = true;
+	//頁面1關閉
     document.getElementById('ReserveIndex').style.display = 'none';
+	//頁面1錯誤訊息關閉
+    document.getElementById('ReturnFalseMsg').hidden = true;
+	//頁面2開啟
     document.getElementById('Output').hidden = false;
     document.getElementById('Title').innerHTML = ReturnModel.Title;
     document.getElementById('OutputMsg').innerHTML = ReturnModel.OutputMsg;
@@ -149,8 +152,8 @@ function addReserveItems(){
 		div.querySelector("div:nth-child(3) > select").index = null;	//下拉式選單歸零
 		div.querySelector("div:nth-child(2)").hidden = true;			//隱藏
 		div.querySelector("div:nth-child(3)").hidden = true;			//隱藏
-		//換行
 		document.getElementById("ReserveItemList").appendChild(div);
+		//換行
 		document.getElementById("ReserveItemList").appendChild(document.createElement("br"));
 	}
 }

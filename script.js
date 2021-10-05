@@ -29,6 +29,7 @@ function PostToGAS(profile){
 	});
 }
 function GetProfileToGoogleSheets(){
+	ShowProgressBar();
 	liff.init({
 		liffId: '1656397971-q9WB8y1b'
 	})
@@ -38,13 +39,9 @@ function GetProfileToGoogleSheets(){
 		}
 		liff.getProfile()
 		.then(profile => {
-			//const name = profile.displayName;
-			//const userId = profile.userId;
-			//const pictureUrl = profile.pictureUrl;
-			//const statusMessage = profile.statusMessage;
 			console.log(profile);
-			console.log(JSON.stringify(profile));
 			PostToGAS(profile);
+			HideProgressBar();
 		})
 		.catch((err) => {
 			console.log('error', err);
@@ -54,11 +51,13 @@ function GetProfileToGoogleSheets(){
 
 //GAS回傳後的更新
 function SendLINEReservation(sendMsg){
+	ShowProgressBar();
 	liff.init({
 		liffId: '1656397971-q9WB8y1b'
 	})
 	.then(() => {
 		SendLINELIFF(sendMsg);
+		HideProgressBar();
 	})
 	.catch((err) => {
 		alert('啟動失敗。');
@@ -245,4 +244,33 @@ function RenewItem(id, index){
 	else{
 		document.getElementsByName("ReserveExtraItemText")[itemListNo].hidden = false
 	}
+}
+
+// 顯示讀取遮罩
+function ShowProgressBar() {
+    displayProgress();
+    displayMaskFrame();
+}
+// 隱藏讀取遮罩
+function HideProgressBar() {
+    var progress = $('#divProgress');
+    var maskFrame = $("#divMaskFrame");
+    progress.hide();
+    maskFrame.hide();
+}
+// 顯示讀取畫面
+function displayProgress() {
+    var w = $(document).width();
+    var h = $(window).height();
+    var progress = $('#divProgress');
+    progress.css({ "z-index": 999999, "top": (h / 2) - (progress.height() / 2), "left": (w / 2) - (progress.width() / 2) });
+    progress.show();
+}
+// 顯示遮罩畫面
+function displayMaskFrame() {
+    var w = $(window).width();
+    var h = $(document).height();
+    var maskFrame = $("#divMaskFrame");
+    maskFrame.css({ "z-index": 999998, "opacity": 0.7, "width": w, "height": h });
+    maskFrame.show();
 }

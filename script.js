@@ -24,6 +24,7 @@ function PostToGAS(profile){
 		//alert("成功");
 		console.log(response);
 		Return(response.returnMsg);
+		HideProgressBar();
 	},
 	error: function(){alert("失敗！")}
 	});
@@ -40,10 +41,7 @@ function GetProfileToGoogleSheets(){
 		liff.getProfile()
 		.then(profile => {
 			console.log(profile);
-			PostToGAS(profile)
-			.then(() => {
-				HideProgressBar();
-			});
+			PostToGAS(profile);
 		})
 		.catch((err) => {
 			console.log('error', err);
@@ -58,10 +56,7 @@ function SendLINEReservation(sendMsg){
 		liffId: '1656397971-q9WB8y1b'
 	})
 	.then(() => {
-		SendLINELIFF(sendMsg)
-		.then(() => {
-			HideProgressBar();
-		});
+		SendLINELIFF(sendMsg);
 	})
 	.catch((err) => {
 		alert('啟動失敗。');
@@ -70,32 +65,18 @@ function SendLINEReservation(sendMsg){
 function SendLINELIFF(sendMsg){
 	if(!liff.isLoggedIn()){
 		liff.login();
-		
-		liff.sendMessages([{
-			type: 'text',
-			text: sendMsg
-		}])
-		.then(() => {
-			GetProfileToGoogleSheets();
-			liff.closeWindow();
-		})
-		.catch((err) => {
-			liff.closeWindow();
-		});
 	}
-	else{
-		liff.sendMessages([{
-			type: 'text',
-			text: sendMsg
-		}])
-		.then(() => {
-			GetProfileToGoogleSheets();
-			liff.closeWindow();
-		})
-		.catch((err) => {
-			liff.closeWindow();
-		});
-	}
+	liff.sendMessages([{
+		type: 'text',
+		text: sendMsg
+	}])
+	.then(() => {
+		HideProgressBar();
+		liff.closeWindow();
+	})
+	.catch((err) => {
+		liff.closeWindow();
+	});
 }
 
 function Return(ReturnModel) {

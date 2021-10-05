@@ -41,7 +41,7 @@ function GetProfileToGoogleSheets(){
 		.then(profile => {
 			console.log(profile);
 			PostToGAS(profile)
-			.then({
+			.then(() => {
 				HideProgressBar();
 			});
 		})
@@ -59,7 +59,7 @@ function SendLINEReservation(sendMsg){
 	})
 	.then(() => {
 		SendLINELIFF(sendMsg)
-		.then({
+		.then(() => {
 			HideProgressBar();
 		});
 	})

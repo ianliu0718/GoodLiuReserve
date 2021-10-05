@@ -40,8 +40,10 @@ function GetProfileToGoogleSheets(){
 		liff.getProfile()
 		.then(profile => {
 			console.log(profile);
-			PostToGAS(profile);
-			HideProgressBar();
+			PostToGAS(profile)
+			.then({
+				HideProgressBar();
+			});
 		})
 		.catch((err) => {
 			console.log('error', err);
@@ -56,8 +58,10 @@ function SendLINEReservation(sendMsg){
 		liffId: '1656397971-q9WB8y1b'
 	})
 	.then(() => {
-		SendLINELIFF(sendMsg);
-		HideProgressBar();
+		SendLINELIFF(sendMsg)
+		.then({
+			HideProgressBar();
+		});
 	})
 	.catch((err) => {
 		alert('啟動失敗。');

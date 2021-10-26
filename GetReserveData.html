@@ -10,10 +10,7 @@
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
-  <body>
-    <div id="item" class="formbody">
-		
-	</div>
+  <body id="item" class="formbody">
   </body>
   <script>
 	liff.init({
@@ -57,10 +54,7 @@
 		var div = document.createElement("div");
 		//設置屬性
 		div.innerHTML = jsonToHtmlTable(tableTitleArray, object);
-		div.setAttribute("class", "formbody");
-		document.getElementById("ReserveItemList").appendChild(div);
-		//換行
-		document.getElementById("ReserveItemList").appendChild(document.createElement("br"));
+		document.getElementById("item").appendChild(div);
 	}
 	
 	function jsonToHtmlTable(tableTitleArray, object) {

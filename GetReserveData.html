@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
-    <div class="formbody">
+    <div id="item" class="formbody">
 		
 	</div>
   </body>
@@ -44,9 +44,49 @@
 		success: function(response) {
 			alert("成功");
 			console.log(response);
+			var dataTable = addItems(JSON.parse(data));
 		},
 		error: function(){alert("失敗！")}
 		});
+	}
+	
+	//動態新增 預約項目
+	function addItems(object){
+		var tableTitleArray = ["姓名", "性別", "電話", "預約日期", "預約時間", "預約據點", "預估金額", "預約項目"]
+		//獲取div
+		var div = document.createElement("div");
+		//設置屬性
+		div.innerHTML = jsonToHtmlTable(tableTitleArray, object);
+		div.setAttribute("class", "formbody");
+		document.getElementById("ReserveItemList").appendChild(div);
+		//換行
+		document.getElementById("ReserveItemList").appendChild(document.createElement("br"));
+	}
+	
+	function jsonToHtmlTable(tableTitleArray, object) {
+		var html = '';
+		html += '<table style="background-color:#4C8CB4;" class="table table-bordered table-dark"><thead><tr><th>#</th>';
+		for (var i in tableTitleArray) {
+			html += '<th>' + tableTitleArray[i] + '</th>';
+		}
+		html += '</tr></thead>';
+		
+		html += '<tr>';
+		for (var i in object) {
+			html += '<th>' + i + '</th>';
+			for (var j in tableTitleArray) {
+			if (tableTitleArray[j] == "預約項目") {
+				for (var k in object[i].預約項目) {
+				html += '<td>' + object[i][tableTitleArray[j]][k] + '</td>';
+				}
+			} else {
+				html += '<td>' + object[i][tableTitleArray[j]] + '</td>';
+			}
+			}
+			html += '</tr>';
+		}
+		html += '</table>';
+		return html;
 	}
   </script>
 </html>

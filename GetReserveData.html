@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <div class="formbody">
+		
+	</div>
+  </body>
+  <script>
+	liff.init({
+		liffId: '1656397971-O01ydwmn'
+	})
+	.then(() => {
+		if(!liff.isLoggedIn()){
+			liff.login();
+		}
+		liff.getProfile()
+		.then(profile => {
+			console.log(profile);
+			GetDataToGAS(profile.userId);
+		})
+		.catch((err) => {
+			console.log('error', err);
+		});
+	})
+	function GetDataToGAS(uerId){
+		//1版 送出使用者訊息
+		var data_url = "https://script.google.com/macros/s/AKfycbwbOlQnvBhTjNvCKZap36IpNWmmKFs3g5KnrXo7U6lkaLab8CDWjAuFNt6dAY7C9Djh/exec";
+		
+		$.ajax({
+		type: "GET",
+		url: data_url,
+		data: uerId ,
+		success: function(response) {
+			alert("成功");
+			console.log(response);
+		},
+		error: function(){alert("失敗！")}
+		});
+	}
+  </script>
+</html>

@@ -42,9 +42,9 @@
 		url: data_url,
 		data: uerId ,
 		success: function(response) {
-			alert("成功");
+			//alert("成功");
 			console.log(response);
-			var dataTable = addItems(JSON.parse(data));
+			addItems(JSON.parse(response));
 		},
 		error: function(){alert("失敗！")}
 		});

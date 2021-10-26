@@ -43,8 +43,8 @@
 		data: uerId ,
 		success: function(response) {
 			//alert("成功");
-			console.log(response);
-			addItems(JSON.parse(response));
+			console.log(JSON.parse(response));
+			addItems(response);
 		},
 		error: function(){alert("失敗！")}
 		});

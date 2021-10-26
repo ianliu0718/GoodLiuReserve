@@ -34,10 +34,12 @@
 	})
 	function GetDataToGAS(uerId){
 		//1版 送出使用者訊息
-		var data_url = "https://pse.is/3rldug";
+		var data_url = "https://script.google.com/macros/s/AKfycbz-XQAMLGxHOMUTQVneIUXfxNhLGh6YrfR7huMQwsmB3kkV28SWefYlTNjvCrLITVME/exec";
 		
 		$.ajax({
 		type: "GET",
+		dataType: "jsonp",
+		jsonpCallback: "jsonpCallback",
 		url: data_url,
 		data: uerId ,
 		success: function(response) {

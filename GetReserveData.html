@@ -70,8 +70,16 @@
 	
 	function jsonToHtmlTable(tableTitleArray, object) {
 		var html = '';
+		//個人資料
+		html += '<table class="table"><thead style="text-align:left;"><tr>';
+		html += '<th colspan="'+object[0].length+'">姓名：'+object[0]["姓名"]+'<br>'
+		html += '<th colspan="'+object[0].length+'">性別：'+object[0]["性別"]+'<br>'
+		html += '<th colspan="'+object[0].length+'">電話：'+object[0]["電話"]
+		html += '</tr></thead>';
+		
+		//預約資料Title
 		html += '<table class="table"><thead><tr><th>#</th>';
-		for (var i in tableTitleArray) {
+		for (var i = 3; i < tableTitleArray.length; i++) {
 			if (tableTitleArray[i] == "預約項目") {
 			html += '<th colspan="'+object[0]["預約項目"].length+'">' + tableTitleArray[i] + '</th>';
 			} else {
@@ -80,10 +88,11 @@
 		}
 		html += '</tr></thead>';
 		
+		//預約資料Data
 		html += '<tbody>';
-		for (var i in object) {
+		for (var i = 3; i < object.length; i++) {
 			html += '<tr><td>' + i + '</td>';
-			for (var j in tableTitleArray) {
+			for (var j = 3; j < tableTitleArray.length; j++) {
 				if (tableTitleArray[j] == "預約項目") {
 					for (var k in object[i].預約項目) {
 					html += '<td>' + object[i][tableTitleArray[j]][k] + '</td>';

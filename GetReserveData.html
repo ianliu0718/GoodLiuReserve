@@ -12,6 +12,14 @@
 	<link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body id="item" class="formbody">
+	<div id="divProgress" style="text-align:center; display: none; position: fixed; top: 50%;  left: 50%;" >
+		<img ID="imgLoading" src="Loading.gif" alt="Loading...">
+		<br />
+		<font color="#1B3563" size="2px">資料處理中</font>
+	</div>
+	<div id="divMaskFrame" style="background-color: #F2F4F7; display: none; left: 0px;
+		position: absolute; top: 0px;">
+	</div>
   </body>
   <script>
 	ShowProgressBar();

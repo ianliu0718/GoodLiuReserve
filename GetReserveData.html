@@ -90,7 +90,7 @@
 		
 		//預約資料Data
 		html += '<tbody>';
-		for (var i = 3; i < object.length; i++) {
+		for (var i in object) {
 			html += '<tr><td>' + i + '</td>';
 			for (var j = 3; j < tableTitleArray.length; j++) {
 				if (tableTitleArray[j] == "預約項目") {
